@@ -2,7 +2,6 @@ package version
 
 import (
 	"fmt"
-	"time"
 )
 
 const (
@@ -16,7 +15,7 @@ type Version struct {
 	Minor  int
 	Build  int
 	Status Status
-	Date   time.Time
+	Date   string
 }
 
 type Status string
@@ -25,7 +24,7 @@ func newStatus() Status {
 	return ALPHA
 }
 
-func New(major int, minor int, build int, status Status, date time.Time) Version {
+func New(major int, minor int, build int, status Status, date string) Version {
 	return Version{
 		Major:  major,
 		Minor:  minor,
@@ -36,5 +35,5 @@ func New(major int, minor int, build int, status Status, date time.Time) Version
 }
 
 func (v Version) ToString() string {
-	return fmt.Sprintf("%d.%d.%d %s (%s)", v.Major, v.Minor, v.Build, v.Status, v.Date.Format("2006/01/02"))
+	return fmt.Sprintf("%d.%d.%d %s (%s)", v.Major, v.Minor, v.Build, v.Status, v.Date)
 }

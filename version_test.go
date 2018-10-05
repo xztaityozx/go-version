@@ -3,7 +3,6 @@ package version
 import (
 	"fmt"
 	"testing"
-	"time"
 )
 
 func Assert(a interface{}, b interface{}, t *testing.T) {
@@ -21,8 +20,8 @@ func TestVersion(t *testing.T) {
 	})
 
 	t.Run("002_ToString", func(t *testing.T) {
-		actual := New(0, 0, 0, STABLE, time.Now()).ToString()
-		expect := fmt.Sprintf("0.0.0 Stable (%s)", time.Now().Format("2006/01/02"))
+		actual := New(0, 0, 0, STABLE, "2018/01/01").ToString()
+		expect := fmt.Sprintf("0.0.0 Stable (%s)", "2018/01/01")
 
 		Assert(actual, expect, t)
 	})
